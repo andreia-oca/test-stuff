@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  ubuntu:
+    image: ubuntu:latest  
+    container_name: test_stuff
+    secrets:
+      - GENEZIO_TOKEN
+    command: echo $GENEZIO_TOKEN
+
+secrets:
+  GENEZIO_TOKEN:
+    external: true
