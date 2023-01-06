@@ -6,7 +6,12 @@ services:
     container_name: test_stuff
     secrets:
       - GENEZIO_TOKEN
-    command: echo $GENEZIO_TOKEN
+    command: 
+      - /bin/bash
+      - -c
+      - |
+        echo -n $GENEZIO_TOKEN > ~/.geneziorc
+        cat ~/.geneziorc
 
 secrets:
   GENEZIO_TOKEN:
