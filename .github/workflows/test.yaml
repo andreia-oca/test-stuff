@@ -7,10 +7,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GENEZIO_TOKEN: ${{ secrets.GENEZIO_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - name: Execute tests from docker-compose
-        with:
-          secrets: |
-            "GENEZIO_TOKEN=${{ secrets.TEST_TOKEN }}"
         run: docker-compose up --abort-on-container-exit --exit-code-from ubuntu
