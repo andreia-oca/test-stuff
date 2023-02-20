@@ -1,0 +1,15 @@
+name: Users Unit Tests
+
+on:
+  push: 
+    branches: [master, dev]
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up 
+        run: echo Hello
